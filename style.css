@@ -1,0 +1,387 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #e0e0e0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 登录页面背景遮罩层 */
+body.login::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(25, 16, 133, 0.973) 40%,
+        rgba(221, 67, 213, 0.85) 75%
+    );
+    z-index: -1;
+}
+
+/* 注册页面背景遮罩层 */
+body.register::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 2, 184, 0.9) 35%,
+        rgba(49, 191, 196, 0.85) 75%
+    );
+    z-index: -1;
+}
+
+
+@keyframes pulseBlue {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulseOrange {
+    0% { opacity: 0.6; }
+    100% { opacity: 0.9; }
+}
+
+/* 页面容器 */
+main {
+    padding: 2rem;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* 登录页面标题样式 */
+body.login header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    position: relative;
+}
+
+body.login header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ebecee);
+    border-radius: 1px;
+}
+
+/* 注册页面标题样式 */
+body.register header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+
+body.register header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff);
+    border-radius: 1px;
+}
+
+/* 登录页面表单容器样式 */
+body.login .user-login-form {
+    background: rgba(190, 199, 226, 0.3);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(54, 24, 24, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 10px 40px rgba(88, 86, 214, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.login .user-login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(113, 148, 187, 0.6), transparent);
+}
+
+/* 注册页面表单容器样式 */
+body.register .user-login-form {
+    background: rgba(230, 241, 249, 0.25);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(251, 249, 248, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 
+        0 10px 40px rgba(215, 208, 200, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.register .user-login-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent);
+}
+
+/* 表单行 */
+.form-row {
+    margin-bottom: 1.5rem;
+}
+
+/* 标签样式 */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fafafa;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* 输入框样式 */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* 登录页面输入框焦点样式 */
+body.login input[type="text"]:focus,
+body.login input[type="email"]:focus,
+body.login input[type="password"]:focus {
+    outline: none;
+    border-color: #537daa;
+    box-shadow: 
+        0 0 0 3px rgba(0, 122, 255, 0.2),
+        0 0 20px rgba(0, 122, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* 注册页面输入框焦点样式 */
+body.register input[type="text"]:focus,
+body.register input[type="email"]:focus,
+body.register input[type="password"]:focus {
+    outline: none;
+    border-color: #FF8C00;
+    box-shadow: 
+        0 0 0 3px rgba(255, 140, 0, 0.2),
+        0 0 20px rgba(255, 140, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* 登录页面按钮样式 */
+body.login .user-login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #5151f4 0%, #5856D6 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 注册页面按钮样式 */
+body.register .user-login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #6138c8 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.user-login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+
+
+/* 链接样式 */
+a {
+    color: #007AFF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #5856D6;
+    text-shadow: 0 0 10px rgba(88, 86, 214, 0.5);
+}
+
+/* 新用户注册链接 */
+.user-new {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.user-new-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid rgba(184, 195, 207, 0.5);
+    border-radius: 25px;
+    color: #f3f5f7;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.user-new-btn:hover {
+    background: rgba(0, 122, 255, 0.1);
+    border-color: #007AFF;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 122, 255, 0.2);
+}
+
+/* 错误消息样式 */
+.error-msg {
+    background: rgba(255, 69, 90, 0.1);
+    border: 1px solid rgba(255, 69, 90, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.error-msg p {
+    color: #f13949;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer small {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .user-login-form {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+}
+
+
+.user-login-form {
+    animation: slideIn 0.8s ease-out;
+}
+
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #007AFF;
+    border-radius: 50%;
+    animation: float 6s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
