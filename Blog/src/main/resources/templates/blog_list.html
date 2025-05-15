@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="css/welcome.css">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+    <link rel="stylesheet" href="css/blog_register_style.css">
+ </head>
+ <body>
+    <header>
+        <!--pc-->
+        <nav class="pc">
+            <div class="pc-inner">
+                <div class="admin-info">
+                    <span th:text="${adminName}">admin</span>さん
+                </div>
+                <ul class="pc-list">
+                    
+                    <li class="pc-list__item"><a href="/blog/list">blog一覧</a></li>
+                    <li class="pc-list__item"><a href="/logout">ログアウト</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h2>blog一覧</h2>
+            <section class="register-item">
+                <div class="all-view-register__button">
+                    <a href="" class="btn btn--orange btn--radius">新規記事作成</a>
+                </div>
+            </section>
+            <ul class="products">
+                <li >
+                    <a th:href="">
+                        <img src="" alt="">
+                        <p></p><br>
+                        <p></p>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </main>
+         
+    <footer>
+        <div>
+            <small>&copy; 2025 晏暁欧</small>
+        </div>
+    </footer>
+         
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/common.js"></script>
+    
+</body>
+</html>
