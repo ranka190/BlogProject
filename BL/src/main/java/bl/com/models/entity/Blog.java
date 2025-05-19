@@ -30,6 +30,7 @@ public class Blog {
 
 	}
 
+	// コンストラクタ
 	public Blog(String blogTitle, String categoryName, String blogImage, String article, Long accountId) {
 		this.blogTitle = blogTitle;
 		this.categoryName = categoryName;
@@ -38,6 +39,7 @@ public class Blog {
 		this.accountId = accountId;
 	}
 
+	// getter setterメソッド
 	public Long getBlogId() {
 		return blogId;
 	}

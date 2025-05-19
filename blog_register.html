@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブログ作成</title>
-    <link rel="stylesheet" href="css/blog_register_style.css">
+    <link rel="stylesheet" th:href="@{/css/blog_register_style.css}">
 </head>
 <body>
     <header>
         <nav class="pc">
             <div class="pc-inner">
                 <ul class="pc-list">
-                    <li class="pc-list__item"><a href="/">ホーム</a></li>
-                    <li class="pc-list__item"><a href="/logout">ログアウト</a></li>
+                    <li class="pc-list__item" th:text="${accountName}"></li>
+                    <li class="pc-list__item"><a th:href="@{/blog/list}">ホーム</a></li>
+                    <li class="pc-list__item"><a th:href="@{/account/logout}">ログアウト</a></li>
                 </ul>
             </div>
         </nav>
@@ -23,15 +24,15 @@
         <div class="main-inner">
             <section class="create-blog-section">
                 <h2>ブログ作成</h2>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form th:action="@{/blog/register/process}" method="post" enctype="multipart/form-data">
                     <div class="blog-details">
                         <div class="blog-details_flex">
                             <div>ブログ名</div>
-                            <input type="text" name="blogTitle" value="" id="blogTitle">
+                            <input type="text" name="blogTitle" value="" id="blogTitle" required>
                         </div>
                         <div class="blog-details_flex">
                             <div>カテゴリー</div>
-                            <select name="blogCategory">
+                            <select name="blogCategory" required>
                                 <option value="">カテゴリーを選択</option>
                                 <option value="旅行">旅行</option>
                                 <option value="食べ物">食べ物</option>
@@ -40,11 +41,11 @@
                         </div>
                         <div class="blog-details_flex">
                             <div>ブログ画像</div>
-                            <input type="file" name="blogImage">
+                            <input type="file" name="blogImage" required>
                         </div>
                         <div class="blog-details_flex">
                             <div>ブログ内容</div>
-                            <textarea name="blogContent" placeholder="ブログの内容を入力してください"></textarea>
+                            <textarea name="blogDescription" placeholder="ブログの内容を入力してください" required></textarea>
                         </div>
                     </div>
                     <div class="blog-details_flex">

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import bl.com.models.dao.AccountDao;
 import bl.com.models.entity.Account;
 
-@Service // new objet対象コードなしでもOK
+@Service // new object対象コードなしでもOK
 public class AccountService {
 	@Autowired
 	private AccountDao accountDao;// DAOのメソッド導入
 	// registerロジック処理
-
 	// registerのメールアドレス存在しないなら、new account作成
-	public boolean createAccount(String accountName,String accountEmail, String password) {
+
+	public boolean createAccount(String accountName, String accountEmail, String password) {
 		if (accountDao.findByAccountEmail(accountEmail) == null) {
 			accountDao.save(new Account(accountName, accountEmail, password));
 			return true;

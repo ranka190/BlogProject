@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body class="login">
         <!-- ページヘッダー -->
@@ -17,13 +17,13 @@
         <main>
           
             <!-- ログインフォーム -->
-            <form action="" method="post">
+            <form th:action="@{/account/login/process}" method="post">
                 <div class="user-login-form">
                     <!-- メールアドレス入力フィールド -->
                     <div class="form-row">
                         <label for="email">メールアドレス</label>
                         <!-- accountテーブルのaccount_email（varchar(255)）に対応 -->
-                        <input type="email" id="email" name="adminEmail" required maxlength="255" placeholder="UserEmail">
+                        <input type="email" id="email" name="accountEmail" required maxlength="255" placeholder="UserEmail">
                     </div>
                     
                     <!-- パスワード入力フィールド -->
@@ -42,7 +42,7 @@
             
             <!-- 新規登録リンク -->
             <div class="user-new">
-                <a class="user-new-btn" href="">新規登録はこちら</a>
+                <a class="user-new-btn" th:href="@{/account/register}">新規登録はこちら</a>
             </div>
         </main>
     

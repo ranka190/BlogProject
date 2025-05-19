@@ -22,8 +22,8 @@ public class AccountLoginController {
 	@GetMapping("/account/login")
 	public String getAccountLoginPage() {
 		return "login";
-		// チェックを実行
 	}
+
 	// ログイン処理
 	@PostMapping("/account/login/process")
 	public String accountLoginProcess(@RequestParam String accountEmail, @RequestParam String password) {
