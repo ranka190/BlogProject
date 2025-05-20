@@ -5,11 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity // データベースのテーブルと合わせる
 public class Account {
-	// テーブルの構成に合わせる
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id // private Long accountIdは主キーを示す
+	@GeneratedValue(strategy = GenerationType.AUTO) // idを自動的に付ける
 	private Long accountId;
 	private String accountName;
 	private String accountEmail;
@@ -19,14 +18,13 @@ public class Account {
 	public Account() {
 	}
 
-	// 修正：パラメーターの順序を accountEmail, accountName, password に変更
 	public Account(String accountEmail, String accountName, String password) {
-		this.accountEmail = accountEmail; // 順番に注意
+		this.accountEmail = accountEmail;
 		this.accountName = accountName;
 		this.password = password;
 	}
 
-	// getter および setter メソッド
+	// getterおよびsetterメソッド
 	public Long getAccountId() {
 		return accountId;
 	}

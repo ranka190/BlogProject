@@ -18,14 +18,14 @@ public class BlogDeleteController {
 
 	@PostMapping("/blog/delete")
 	public String blogDelete(Long blogId) {
-		// セッションからログインしている人の情報をadminという変数に格納
+		// セッションからログインしている人の情報をaccountという変数に格納
 		Account account = (Account) session.getAttribute("loginAccountInfo");
 
 		// もしaccount == null ログイン画面にリダイレクトする
 		if (account == null) {
 			return "redirect:/account/login";
 		} else {
-			// もし、deleteProductの結果がtrueだったら
+			// もし、blogDeleteの結果がtrueだったら
 			if (blogService.blogDelete(blogId)) {
 				// 商品の一覧ページにリダイレクト
 				return "redirect:/blog/list";

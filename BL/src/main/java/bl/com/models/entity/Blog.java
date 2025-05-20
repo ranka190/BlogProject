@@ -11,19 +11,19 @@ public class Blog {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long blogId;
 
-	// product_categoryの設定
+	// title
 	private String blogTitle;
 
-	// product_descriptionの設定
+	// categoryの設定
 	private String categoryName;
 
-	// product_image
+	// image
 	private String blogImage;
 
-	// product_name
+	// ブログ内容
 	private String article;
 
-	// admin_id
+	// account_id
 	private Long accountId;
 
 	public Blog() {

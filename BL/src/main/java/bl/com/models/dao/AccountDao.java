@@ -5,12 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import bl.com.models.entity.Account;
 
-//Accountテーブルのデータベース操作機能
-@Repository // コードからSQL操作のインターフェス
-public interface AccountDao extends JpaRepository<Account, Long> {
+@Repository // データアクセス層 データベースの例外処理をSpringの例外に統一する
+//コードからSQL操作のインターフェス
+public interface AccountDao extends JpaRepository<Account, Long> {// テーブル名と主キー型
 	Account save(Account account);// 保存機能
 
-	Account findByAccountEmail(String accountEmail);// メールアドレス存在確認
+	Account findByAccountEmail(String accountEmail);// メールアドレスでアカウント確認
 
 	Account findByAccountEmailAndPassword(String accountEmail, String password);// メールアドレスとパスワードマッチの検査
 }

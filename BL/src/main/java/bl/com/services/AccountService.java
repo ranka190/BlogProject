@@ -8,7 +8,7 @@ import bl.com.models.entity.Account;
 
 @Service // new object対象コードなしでもOK
 public class AccountService {
-	@Autowired
+	@Autowired // new AccountDao対象コードなしでもOK
 	private AccountDao accountDao;// DAOのメソッド導入
 	// registerロジック処理
 	// registerのメールアドレス存在しないなら、new account作成
@@ -16,16 +16,18 @@ public class AccountService {
 	public boolean createAccount(String accountName, String accountEmail, String password) {
 		if (accountDao.findByAccountEmail(accountEmail) == null) {
 			accountDao.save(new Account(accountName, accountEmail, password));
-			return true;
+			return true;// 登録成功
 		} else {
-			return false;
+			return false;// 登録失敗
 		}
 	}
 
 	// loginロジック処理
 	// passwordとメールアドレスのマッチのチェック
 	public Account loginCheck(String accountEmail, String password) {
+		// アカウントデータを入れる
 		Account account = accountDao.findByAccountEmailAndPassword(accountEmail, password);
+		// アカウントを見つけたら、return
 		if (account == null) {
 			return null;
 		} else {

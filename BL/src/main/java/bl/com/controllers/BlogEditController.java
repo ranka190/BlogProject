@@ -55,9 +55,9 @@ public class BlogEditController {
 	@PostMapping("/blog/edit/process")
 	public String blogUpdate(@RequestParam String blogTitle, @RequestParam String categoryName,
 			@RequestParam MultipartFile blogImage, @RequestParam String article, @RequestParam Long blogId) {
-		// セッションからログイン中のユーザー情報をadminという変数に格納
+		// セッションからログイン中のユーザー情報をaccountという変数に格納
 		Account account = (Account) session.getAttribute("loginAccountInfo");
-		// adminがnullの場合、ログイン画面へリダイレクト
+		// accountがnullの場合、ログイン画面へリダイレクト
 		// そうでない場合、
 		if (account == null) {
 			return "redirect:/account/login";
